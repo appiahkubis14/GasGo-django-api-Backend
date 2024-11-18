@@ -4,7 +4,7 @@ from .models import UserSignUP
 
 class UserAdmin(BaseUserAdmin):
     # Fields to display in the admin user list
-    list_display = ('first_name', 'surname', 'phone', 'email', 'role', 'is_active', 'is_staff')
+    list_display = ('first_name', 'surname', 'phone', 'email', 'role','photo','hostel','address', 'password','is_active', 'is_staff')
     search_fields = ('phone', 'email', 'first_name', 'surname')
     ordering = ('first_name',)
 

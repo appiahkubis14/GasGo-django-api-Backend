@@ -30,8 +30,10 @@ SECRET_KEY = 'django-insecure-awkq^1y95m6k(ydf-w1(avk%!q6pcc+d$-^&555#=yyhqv-s2@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.43.240']
+ALLOWED_HOSTS = ['192.168.43.240','127.0.0.1','192.168.137.205','10.42.0.1']
 APPEND_SLASH=False 
+DEBUG = True
+
 
 
 # Application definition
@@ -44,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -55,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'GoGas.urls'
@@ -80,6 +84,8 @@ WSGI_APPLICATION = 'GoGas.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+
 
 
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')

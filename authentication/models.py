@@ -27,14 +27,15 @@ class UserSignUP(AbstractBaseUser, PermissionsMixin):
         ('tricycler', 'Tricycler'),
     ]
 
-    first_name = models.CharField(max_length=50)
-    surname = models.CharField(max_length=50)
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
-    phone = models.CharField(max_length=15, unique=True)
+    first_name = models.CharField(max_length=200)
+    surname = models.CharField(max_length=200)
+    role = models.CharField(max_length=200, choices=ROLE_CHOICES)
+    phone = models.CharField(max_length=200, unique=True)
     hostel = models.CharField(max_length=255, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
     email = models.EmailField(unique=True)
     photo = models.ImageField(upload_to='users/photo/',default='No Photo')
+    password = models.CharField(max_length=200)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 

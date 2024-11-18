@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = UserSignUP
-        fields = ['id', 'first_name', 'surname', 'role', 'phone', 'hostel', 'address', 'email']
+        fields = ['id', 'first_name', 'surname', 'role', 'phone', 'hostel', 'address', 'email','password','photo']
 
 
 class SignupSerializer(serializers.ModelSerializer):
@@ -31,5 +31,5 @@ class OTPVerificationSerializer(serializers.Serializer):
     """
     Serializer for OTP verification.
     """
-    phone = serializers.CharField(max_length=10)  # Corrected typo from `max_lenght` to `max_length`
+    phone = serializers.CharField(max_length=10) 
     otp = serializers.CharField(max_length=4)

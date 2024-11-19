@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import UserSignUP
-
+from django.contrib.auth.hashers import make_password
 
 class UserSerializer(serializers.ModelSerializer):
     """
@@ -11,20 +11,23 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'first_name', 'surname', 'role', 'phone', 'hostel', 'address', 'email','password','photo']
 
 
+
 class SignupSerializer(serializers.ModelSerializer):
     """
-    Serializer for user signup with validation for password.
+    Serializer for user signup with password hashing.
     """
     class Meta:
         model = UserSignUP
-        fields = ['photo','first_name', 'surname', 'role', 'phone', 'hostel', 'address', 'email', 'password']
+        fields = [
+            'photo', 'first_name', 'surname', 'role', 'phone', 
+            'hostel', 'address', 'email', 'password'
+        ]
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        """
-        Creates a new user with the provided validated data.
-        """
-        return UserSignUP.objects.create_user(**validated_data)
+        # Hash the password before saving the user
+        validated_data['password'] = make_password(validated_data['password'])
+        return super().create(validated_data)
 
 
 class OTPVerificationSerializer(serializers.Serializer):

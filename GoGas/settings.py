@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-awkq^1y95m6k(ydf-w1(avk%!q6pcc+d$-^&555#=yyhqv-s2@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.43.240','127.0.0.1','192.168.137.205','10.42.0.1']
+ALLOWED_HOSTS = ['192.168.43.240','127.0.0.1','192.168.137.205','10.42.0.1','192.168.137.96']
 APPEND_SLASH=False 
 DEBUG = True
 
@@ -95,6 +95,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+
 
 
 
